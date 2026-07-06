@@ -34,3 +34,24 @@ section {
 .rain-chart { grid-area: chart; }
 .global-map { grid-area: map; }
 .other-cities { grid-area: cities; }
+
+.weather-today{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-header h2 {
+  font-size: 4rem;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.weather-details {
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
