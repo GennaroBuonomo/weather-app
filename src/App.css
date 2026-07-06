@@ -1,0 +1,36 @@
+body{
+  background-color: #1a1a1a;
+  color: white;
+  margin: 0;
+  font-family: -apple-system, sans-serif;
+}
+
+.weather-dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+  gap: 16px;
+  padding: 16px;
+}
+
+.main-content{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    "today forecast chart"
+    "map map cities";
+}
+
+section {
+  background-color: #242424;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.weather-today { grid-area: today; }
+.forecast { grid-area: forecast; }
+.rain-chart { grid-area: chart; }
+.global-map { grid-area: map; }
+.other-cities { grid-area: cities; }
