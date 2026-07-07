@@ -24,23 +24,31 @@ function App() {
   }, []);
 
   return (
-    <div className="weather-dashboard">
-      {/* Se il meteo è caricato, mostriamo i dati veri */}
-      {weather ? (
-        <section className="weather-today">
-          <div className="weather-header">
-            <p>{weather.name}, {weather.sys.country}</p>
-            <h2>{Math.round(weather.main.temp)}°</h2>
-          </div>
-          <div className="weather-details">
-            <p>Real Feel: {Math.round(weather.main.feels_like)}°</p>
-            <p>Wind: {weather.wind.speed} km/h</p>
-            <p>Humidity: {weather.main.humidity}%</p>
-          </div>
-        </section>
-      ) : (
-        <p>Caricamento meteo...</p>
-      )}
+<div className="weather-dashboard">
+      <nav className="navbar">Cerca città...</nav>
+      
+      <main className="main-content">
+        {/* BLOCCO 1: METEO OGGI */}
+        {weather ? (
+          <section className="weather-today">
+            <div className="weather-header">
+              <p>{weather.name}, {weather.sys.country}</p>
+              <h2>{Math.round(weather.main.temp)}°</h2>
+            </div>
+            <div className="weather-details">
+              <p>Real Feel: {Math.round(weather.main.feels_like)}°</p>
+              <p>Wind: {weather.wind.speed} km/h</p>
+              <p>Humidity: {weather.main.humidity}%</p>
+            </div>
+          </section>
+        ) : <p>Caricamento...</p>}
+
+        {/* BLOCCHI AGGIUNTIVI (da riempire dopo) */}
+        <section className="forecast">Previsioni 7 giorni</section>
+        <section className="rain-chart">Grafico Pioggia</section>
+        <section className="global-map">Mappa</section>
+        <aside className="other-cities">Altre città</aside>
+      </main>
     </div>
   );
 }
