@@ -79,3 +79,55 @@ section, aside{
   border-radius: 24px;
   padding: 20px;
 }
+
+/* Stile per gli elementi con icona */
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Facciamo risaltare la temperatura */
+.weather-header h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+/* Spaziatura della card */
+.weather-today {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.other-cities h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.city-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.city-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.city-desc {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.city-temp {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
