@@ -113,7 +113,13 @@ function App() {
             ))}
           </div>
         </section>
-        <section className="global-map">Mappa</section>
+        {/* BLOCCO: MAPPA GLOBALE */}
+        <section className="global-map">
+          <div className="map-overlay-card">
+            <h4>Explore global map of wind, weather and oceans condition.</h4>
+            <button className="get-started-btn">Get started</button>
+          </div>          
+        </section>
         <aside className="other-cities">
           <h3>Other Large Cities</h3>
   <div className="city-list">
