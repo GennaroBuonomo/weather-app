@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react';
-import { CloudSun, Wind, Droplets } from 'lucide-react';
+import { CloudSun, Wind, Droplets, CloudLightning, CloudRain } from 'lucide-react';
 import './App.css';
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState('Naples'); 
+  const [searchTerm, setSearchTerm] = useState(''); 
   const API_KEY = import.meta.env.VITE_API_KEY; 
-  const city = 'Naples';
+
+  
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      setCity(searchTerm);
+    }
+  };
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -15,18 +23,25 @@ function App() {
         );
         const data = await response.json();
         setWeather(data);
-        console.log(data); 
       } catch (error) {
-        console.error("Errore nel recupero dati:", error);
+        console.error("Errore:", error);
       }
     };
-
     fetchWeather();
-  }, []);
+  }, [city]);
 
   return (
 <div className="weather-dashboard">
-      <nav className="navbar">Cerca città...</nav>
+      <nav className="navbar">
+        <input 
+         type="text"
+         placeholder="Cerca la città"
+         value={searchTerm}
+         onChange={(e) => setSearchTerm(e.target.value)}
+         onKeyDown={handleSearch}
+         className="search-input"         
+        />
+      </nav>
       
       <main className="main-content">
 {/* BLOCCO 1: METEO OGGI */}
@@ -38,7 +53,7 @@ function App() {
     </div>
     
     <div className="weather-details">
-      {/* Usiamo le icone che abbiamo importato */}
+      {/* Uso le icone che abbiamo importato */}
       <div className="detail-item">
         <Droplets size={20} color="#a0a0a0" />
         <p>Umidità: {weather.main.humidity}%</p>
@@ -53,7 +68,27 @@ function App() {
 
         {/* BLOCCHI AGGIUNTIVI (da riempire dopo) */}
         <section className="forecast">Previsioni 7 giorni</section>
-        <section className="rain-chart">Grafico Pioggia</section>
+        {/* BLOCCO: GRAFICO PIOGGIA */}
+        <section className="rain-chart">
+          <h3>Chance of rain</h3>
+          <div className="chart-container">
+            {[
+              { time: "10 AM", chance: 20 },
+              { time: "11 AM", chance: 50 },
+              { time: "12 PM", chance: 90 },
+              { time: "01 PM", chance: 60 },
+              { time: "02 PM", chance: 30 },
+              { time: "03 PM", chance: 10 }
+            ].map((item, index) => (
+              <div key={index} className="bar-wrapper">
+                <div className="bar" style={{ height: `${item.chance}%` }}></div>
+
+                <span className="bar-time">{item.time}</span>
+
+              </div>
+            ))}
+          </div>
+        </section>
         <section className="global-map">Mappa</section>
         <aside className="other-cities">
           <h3>Other Large Cities</h3>
