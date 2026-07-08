@@ -66,8 +66,32 @@ function App() {
   </section>
 ) : <p>Caricamento...</p>}
 
-        {/* BLOCCHI AGGIUNTIVI (da riempire dopo) */}
-        <section className="forecast">Previsioni 7 giorni</section>
+        {/* BLOCCO: PREVISIONI */}
+        <section className="forecast">
+          <div className="forecast-nav">
+            <span className="nav-item">Today</span>
+            <span className="nav-item">Tomorrow</span>
+            <span className="nav-item">Next 7 days</span>
+          </div>
+
+          <div className="forecast-grid">
+            {[
+              { day: "Mon", temp: "16°", icon: CloudSun },
+              { day: "Tue", temp: "10°", icon: CloudLightning },
+              { day: "Wed", temp: "15°", icon: CloudSun },
+              { day: "Thu", temp: "11°", icon: CloudRain },
+              { day: "Fri", temp: "18°", icon: CloudSun },
+              { day: "Sat", temp: "12°", icon: CloudLightning },
+              { day: "Sun", temp: "10°", icon: CloudRain }
+            ].map((item,index) => (
+              <div key={index} className="forecast-card">
+                <span className="f-day">{item.day}</span>
+                <item.icon size={28} color="#ffffff" strokeWidth={1.5} />
+                <span className="f-temp">{item.temp}</span>
+              </div>
+            ))}
+          </div>
+        </section>
         {/* BLOCCO: GRAFICO PIOGGIA */}
         <section className="rain-chart">
           <h3>Chance of rain</h3>
