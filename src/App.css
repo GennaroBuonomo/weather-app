@@ -297,3 +297,11 @@ section, aside{
   transform: scale(1.03);
   background-color: #e0e0e0;
 }
+
+.search-input{
+  border-radius: 50px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #E7E7E7;
+}
+
