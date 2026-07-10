@@ -249,6 +249,13 @@ section, aside{
   align-items: flex-end; 
   padding: 24px;
   overflow: hidden; 
+  cursor: pointer; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.global-map:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* Filtro scuro sopra l'immagine per far risaltare la card */

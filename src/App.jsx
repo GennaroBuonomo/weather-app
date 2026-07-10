@@ -114,7 +114,10 @@ function App() {
           </div>
         </section>
         {/* BLOCCO: MAPPA GLOBALE */}
-        <section className="global-map">
+        <section 
+         className="global-map"
+         onClick={() => window.open('https://www.windy.com', '_blank')}         
+         >
           <div className="map-overlay-card">
             <h4>Explore global map of wind, weather and oceans condition.</h4>
             <button className="get-started-btn">Get started</button>
